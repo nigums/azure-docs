@@ -26,6 +26,10 @@ Cloud provisioning is scheduled to run every 2 mins. Every 2 mins, any user, gro
 
 This is expected. The failures are due to the user object not present in Azure AD. Once the user is provisioned to Azure AD, password hashes should provisioning in the subsequent run. Wait for a couple of runs and confirm that password hash sync no longer has the errors.
 
+**Q: Does cloud provisioning support Exchange attributes?
+
+Yes, the exchange attributes (covered under https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=azure/active-directory/cloud-provisioning/context/cp-context) are synced from AD to Azure AD. Cloud provisioning does not support writeback of Exchange attributes hence, Exchange hybrid configuration is not supported.
+
 **Q: What's the difference between Azure AD Connect sync and cloud provisioning?**
 
 With Azure AD Connect sync, provisioning runs on the on-premises sync server. Configuration is stored on the on-premises sync server. With Azure AD Connect cloud provisioning, the provisioning configuration is stored in the cloud and runs in the cloud as part of the Azure AD provisioning service. 
